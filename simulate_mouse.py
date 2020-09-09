@@ -3,10 +3,10 @@ import random
 import time
 
 # defines the duration it should take to move mouse from a to b -> Gets choosen randomly between the min and max value
-duration_range = (1, 100)
+duration_range = (1, 10)
 
 # defines the min/max duration the script should pause between mouse moves
-sleep_range = (20, 100)
+sleep_range = (5, 100)
 
 # get screen dimensions
 display_width, display_height = pyautogui.size()
