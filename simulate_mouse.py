@@ -12,8 +12,8 @@ sleep_range = (5, 100)
 display_width, display_height = pyautogui.size()
 
 
-# simulate mouse movement randomly across the screen
-def simulate(width=display_width, height=display_height, duration=duration_range, sleep = sleep_range):
+def simulate_mouse(width=display_width, height=display_height, duration=duration_range, sleep=sleep_range):
+    """simulate mouse movement randomly across the screen"""
     while True:
         # adjust screen - 10% padding
         pyautogui.moveTo(random.randint(width*0.1, width*0.9),
@@ -22,5 +22,19 @@ def simulate(width=display_width, height=display_height, duration=duration_range
         time.sleep(random.randint(sleep[0], sleep[1]))
 
 
+def simulate_keys_volume(sleep=sleep_range):
+    """simulate key presses"""
+    while True:
+
+        # increase volume and then decrease it to get original value
+        pyautogui.press('volumeup')
+        time.sleep(1)
+        pyautogui.press('volumedown')
+
+        # make random break until next volume changement
+        time.sleep(random.randint(sleep[0], sleep[1]))
+
+
 if __name__ == "__main__":
-    simulate()
+    # simulate_mouse()
+    simulate_keys_volume()
